@@ -13,8 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+buildscript {
+    ext {
+        compose_compiler_version = '1.4.0'
+        lifecycle_version = '2.5.1'
+    }
+}
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+
+
 plugins {
     id("com.android.application") version "8.7.1" apply false
     id("com.android.library") version "8.7.1" apply false
