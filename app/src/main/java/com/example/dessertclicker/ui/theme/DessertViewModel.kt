@@ -12,7 +12,7 @@ class DessertViewModel : ViewModel() {
     private val _dessertUiState = MutableStateFlow(DessertUiState())
     val dessertUiState: StateFlow<DessertUiState> = _dessertUiState.asStateFlow()
 
-    fun onDessertClick() {
+    fun onDessertClicked() {
         _dessertUiState.update { cupcakeUiState ->
             val dessertsSold = cupcakeUiState.dessertsSold + 1
             val nextDessertIndex = determineDessertIndex(dessertsSold)
