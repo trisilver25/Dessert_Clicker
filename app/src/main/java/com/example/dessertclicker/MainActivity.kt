@@ -55,11 +55,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.dessertclicker.data.DessertUiState
 import com.example.dessertclicker.ui.theme.DessertClickerTheme
 import com.example.dessertclicker.ui.theme.DessertViewModel
+
 
 private const val TAG = "MainActivity"
 
@@ -151,7 +153,6 @@ private fun DessertClickerApp(
 private fun DessertClickerApp(
     uiState: DessertUiState,
     onDessertClicked: () -> Unit,
-    modifier: Modifier = Modifier
 ) {
     Scaffold(
         topBar = {
@@ -183,19 +184,21 @@ private fun AppBar(
     modifier: Modifier = Modifier
 ) {
     Row(
-        modifier = modifier,
+        modifier = modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.primary),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
             text = stringResource(R.string.app_name),
-            modifier = Modifier.padding(start = dimensionResource(R.dimen.padding_medium)),
+            modifier = Modifier.padding(start = 16.dp),
             color = MaterialTheme.colorScheme.onPrimary,
             style = MaterialTheme.typography.titleLarge,
         )
         IconButton(
             onClick = onShareButtonClicked,
-            modifier = Modifier.padding(end = dimensionResource(R.dimen.padding_medium)),
+            modifier = Modifier.padding(end = 16.dp),
         ) {
             Icon(
                 imageVector = Icons.Filled.Share,
